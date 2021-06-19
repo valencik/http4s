@@ -128,7 +128,7 @@ import cats._, cats.effect._, cats.implicits._
 import org.http4s.Uri
 ```
 
-```scala mdoc
+```scala mdoc:nest
 def hello(name: String): IO[String] = {
   val target = uri"http://localhost:8080/hello/" / name
   httpClient.expect[String](target)
@@ -153,7 +153,6 @@ the world" varies by context:
 * Here in the REPL, the last line is the end of the world.  Here we go:
 
 ```scala mdoc:nest
-val fiber = server.use(_ => IO.never).start.unsafeRunSync()
 val greetingsStringEffect = greetingList.map(_.mkString("\n"))
 greetingsStringEffect.unsafeRunSync()
 ```
