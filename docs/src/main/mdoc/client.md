@@ -153,6 +153,7 @@ the world" varies by context:
 * Here in the REPL, the last line is the end of the world.  Here we go:
 
 ```scala mdoc:nest
+val fiber = server.use(_ => IO.never).start.unsafeRunSync()
 val greetingsStringEffect = greetingList.map(_.mkString("\n"))
 greetingsStringEffect.unsafeRunSync()
 ```
